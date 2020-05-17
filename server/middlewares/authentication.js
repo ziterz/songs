@@ -1,7 +1,7 @@
 const { verify_token } = require('../helpers/jwt')
 const { User } = require('../models')
 
-function authentication () {
+function authentication (req, res, next) {
     const { access_token } = req.headers
     let decode = verify_token(access_token)
 
@@ -9,7 +9,7 @@ function authentication () {
       .then(user => {
           if (user) {
               req.UserId = user.id
-              next(err)
+              next()
           } else {
               next(err)
           }

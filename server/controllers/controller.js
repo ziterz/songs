@@ -67,7 +67,7 @@ class Controller {
 
     static findAll(req, res, next) { 
         const { UserId } = req
-
+        
         Song.findAll({ where: { UserId } })
           .then(songs => {
               if (songs) {
