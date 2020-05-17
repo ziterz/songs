@@ -10,10 +10,10 @@ class UserController{
             password
         })
             .then(data => {
+                let {id, email} = data
                 res.status(201).json({
                     id, 
-                    email,
-                    password
+                    email
                 })
             })
             .catch(err => {
