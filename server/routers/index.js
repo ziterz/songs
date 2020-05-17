@@ -4,6 +4,6 @@ const songRouter = require('./songRouter')
 
 router.post('/login', userController.login)
 router.post('/register', userController.register)
-router.use(songRouter)
+router.use('/song', songRouter)
 
 module.exports = router
