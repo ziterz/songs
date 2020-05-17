@@ -15,5 +15,5 @@ app.use(routers)
 app.use(errorHandler)
 
 app.listen(PORT, () => {
-  Console.log('PORT : '+3000)
+  console.log('PORT : '+3000)
 })

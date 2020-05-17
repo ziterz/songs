@@ -3,7 +3,7 @@ const { Song } = require('../models')
 class SongController {
   
   static findAll (req,res,next) {
-    Song.findAll({ where: { id: req.currentUserId }})
+    Song.findAll({ where: { userId: req.currentUserId }})
     .then(data => {
       return res.status(200).json(data)
     })
@@ -14,9 +14,9 @@ class SongController {
 
   static add(req,res,next) {
     const newSong = {
-      title: req.body.email,
+      title: req.body.title,
       artist: req.body.artist,
-      userId: req.currentuserId
+      userId: req.currentUserId
     }
     Song.create(newSong)
     .then(data => {
@@ -28,9 +28,10 @@ class SongController {
   }
   
   static delete (req,res,next) {
-    Song.delete({where: {id:req.params.id}})
+    console.log('controller');
+    Song.destroy({where: {id: req.params.id}})
     .then(data =>{
-      return res.status(201).json({data})
+      return res.status(201).json(data)
     })
     .catch(err => {
       next(err)

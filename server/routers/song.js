@@ -7,6 +7,6 @@ router.use(authentication)
 
 router.get('/', SongController.findAll)
 router.post('/', SongController.add)
-router.delete('/:id', authorization, SongController.delete)
+router.delete('/delete/:id', authorization, SongController.delete)
 
 module.exports = router

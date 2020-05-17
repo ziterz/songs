@@ -10,8 +10,8 @@ class UserController {
     }
     User.create(newUser)
     .then(data => {
-      const access_token = generateToken({access_token})
-      return res.status(201).json(newUser)
+      const access_token = generateToken(newUser)
+      return res.status(201).json({access_token})
     })
     .catch(err => {
         next(err)
