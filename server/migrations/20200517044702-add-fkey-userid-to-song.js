@@ -5,7 +5,7 @@ module.exports = {
         return queryInterface.addConstraint('Songs', ['userId'], {
             type: 'foreign key',
             name: 'custom_fkey_userId',
-            references: { 
+            references: {
                 table: 'Users',
                 field: 'id'
             },

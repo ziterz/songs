@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcrypt')
 
 var salt = bcrypt.genSaltSync(10)
 
@@ -10,4 +10,4 @@ function comparePassword(password, hash) {
     return bcrypt.compareSync(password, hash)
 }
 
-module.exports = { generate, compare }
+module.exports = { generatePassword, comparePassword }

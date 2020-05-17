@@ -1,4 +1,4 @@
-const router = require('express').config()
+const router = require('express').Router()
 const user = require('./user')
 router.get('/', (req,res) => {
   res.send('ok')
