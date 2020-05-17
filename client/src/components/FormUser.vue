@@ -54,10 +54,11 @@ export default {
           url: 'http://localhost:3000/login',
           data: {
             email: this.email,
-            password: this.email
+            password: this.password
           }
         })
           .then(({ data }) => {
+            localStorage.setItem('access_token', data.access_token)
             this.$router.push({ path: '/dashboard' })
             this.$store.commit('set_routes', '')
             this.email = ''
@@ -65,6 +66,10 @@ export default {
           })
           .catch(err => {
             console.log(err)
+            this.$router.push({ path: '/' })
+            this.$store.commit('set_routes', '')
+            this.email = ''
+            this.password = ''
           })
       }
     }
